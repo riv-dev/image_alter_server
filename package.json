@@ -1,0 +1,15 @@
+{
+  "name": "image-alter-server",
+  "version": "1.0.0",
+  "description": "Image Alter Server",
+  "main": "image_alter_server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ken Le",
+  "license": "ISC",
+  "dependencies": {
+    "express": "*",
+    "body-parser": "*"
+  }
+}
