@@ -29,9 +29,9 @@ app.get('/', function (req, res) {
     var rootpath = decodeURIComponent(req.query.rootpath);
     var relative_uri = decodeURIComponent(req.query.relative_uri);
     file_path = rootpath + "/" + relative_uri;
-    var regex = /.html$/i;
+    var regex = /\.html/i;
 
-    if(!regex.test()) {
+    if(!regex.test(relative_uri)) {
         file_path = file_path + "/index.html";
     }
 
@@ -60,9 +60,9 @@ app.post('/', urlencodedParser, function (req, res) {
     var rootpath = decodeURIComponent(req.body.rootpath);
     var relative_uri = decodeURIComponent(req.body.relative_uri);
     file_path = rootpath + "/" + relative_uri;
-    var regex = /.html$/i;
+    var regex = /\.html/i;
 
-    if(!regex.test()) {
+    if(!regex.test(relative_uri)) {
         file_path = file_path + "/index.html";
     }
 
