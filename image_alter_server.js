@@ -20,14 +20,14 @@ var file_path;
 
 // Checks Sync
 app.get('/', function (req, res) {
-   console.log("Got a GET request for the homepage: ");
-   console.log("  host: " + req.query.host);
-   console.log("  relative: " + req.query.relative_uri);
-   console.log("  rootpath: "  + req.query.rootpath);
+    console.log("Got a GET request for the homepage: ");
+    console.log("  host: " + req.query.host);
+    //find the file
+    var rootpath = decodeURIComponent(req.query.rootpath).replace(/\/$/,'');
+    var relative_uri = decodeURIComponent(req.query.relative_uri).replace(/^\//,'').replace(/\/$/,'');
+    console.log("  relative: " + relative_uri);
+    console.log("  rootpath: "  + rootpath);
 
-   //find the file
-    var rootpath = decodeURIComponent(req.query.rootpath);
-    var relative_uri = decodeURIComponent(req.query.relative_uri);
     file_path = rootpath + "/" + relative_uri;
     var regex = /\.html/i;
 
@@ -53,12 +53,13 @@ app.get('/', function (req, res) {
 app.post('/', urlencodedParser, function (req, res) {
    console.log("Got a POST request for the homepage: ");
    console.log("  host: " + req.body.host);
-   console.log("  relative: " + req.body.relative_uri);
-   console.log("  rootpath: "  + req.body.rootpath);
+    //find the file
+    var rootpath = decodeURIComponent(req.body.rootpath).replace(/\/$/,'');
+    var relative_uri = decodeURIComponent(req.body.relative_uri).replace(/^\//,'').replace(/\/$/,'');
+    console.log("  relative: " + relative_uri);
+    console.log("  rootpath: "  + rootpath);
+    console.log("  patch: " + req.body.patch);
 
-   //find the file
-    var rootpath = decodeURIComponent(req.body.rootpath);
-    var relative_uri = decodeURIComponent(req.body.relative_uri);
     file_path = rootpath + "/" + relative_uri;
     var regex = /\.html/i;
 
@@ -66,7 +67,7 @@ app.post('/', urlencodedParser, function (req, res) {
         file_path = file_path + "/index.html";
     }
 
-    console.log("  filepath: " + file_path);
+    //console.log("  filepath: " + file_path);
 
     var patchedHTML;
     var diffMatchPatchObj = diffMatchPatch.diff_match_patch();
@@ -79,6 +80,7 @@ app.post('/', urlencodedParser, function (req, res) {
             }
             //console.log("Asynchronous read: " + data.toString());
             patchedHTML = diffMatchPatchObj.patch_apply(JSON.parse(req.body.patch), data.toString())[0];
+            patchedHTML += "YATAA!!!";
 
             fs.writeFile(file_path, patchedHTML, function (err) {
                 if (err) {
