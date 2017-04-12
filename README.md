@@ -19,7 +19,7 @@ node image_alter_server.js
 ```
 
 ## Updating the code
-Navigate into the directory.
+Navigate into the image_alter_server directory.
 ```
 git pull origin master
 npm install
