@@ -80,7 +80,6 @@ app.post('/', urlencodedParser, function (req, res) {
             }
             //console.log("Asynchronous read: " + data.toString());
             patchedHTML = diffMatchPatchObj.patch_apply(JSON.parse(req.body.patch), data.toString())[0];
-            patchedHTML += "YATAA!!!";
 
             fs.writeFile(file_path, patchedHTML, function (err) {
                 if (err) {
