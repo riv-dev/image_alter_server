@@ -2,7 +2,7 @@
 Automatically updates your HTML files.
 
 ## Install
-Clone the project into a any directory (does not need to be in project directory).
+Clone the project into any directory (does not need to be in project directory).
 ```
 git clone https://github.com/riv-dev/image_alter_server.git
 ```
