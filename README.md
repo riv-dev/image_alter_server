@@ -22,4 +22,5 @@ node image_alter_server.js
 Navigate into the directory.
 ```
 git pull origin  master
+npm install
 ```
