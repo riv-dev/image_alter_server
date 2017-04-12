@@ -24,3 +24,4 @@ Navigate into the image_alter_server directory.
 git pull origin master
 npm install
 ```
+Restart the server
