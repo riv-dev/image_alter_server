@@ -11,7 +11,7 @@ Navigate into the directory and install dependencies.
 npm install
 ```
 
-### Note: You only need to install the server once.  It works for all projects.  However you should occassionally check for code updates.
+#### **Note: You only need to install the server once.  It works for all projects.  However you should occassionally check for code updates.
 
 ## Start the server
 ```
