@@ -2,7 +2,7 @@
 Automatically updates your HTML files.
 
 ## Install
-Clone the project into your directory.
+Clone the project into a any directory (does not need to be in project directory).
 ```
 git clone https://github.com/riv-dev/image_alter_server.git
 ```
@@ -14,4 +14,10 @@ npm install
 ## Start the server
 ```
 node image_alter_server.js
+```
+
+## Updating the code
+Navigate into the directory.
+```
+git pull origin  master
 ```
